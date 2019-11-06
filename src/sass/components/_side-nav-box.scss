@@ -1,0 +1,744 @@
+
+//
+// Colors
+//
+
+// Default
+$colors: (
+    1: #2351a8, 2: #24499d, 3: #becef5, 4: #9aabde, 5: #244295
+);
+
+// Light
+$light-colors: (
+    1: #ffffff, 2: #fafafa, 3: #becef5, 4: #9aabde, 5: #f2f2f2, 6: #e6e6e6, 7: #262626
+);
+
+// Dark
+$dark-colors: (
+    1: #1c1e2b, 2: #222531, 3: #a1abbd, 4: #575e7d, 5: #1e202b
+);
+
+
+
+//
+// Side nav box
+//
+
+.side-nav-box {
+    width: 65px;
+    min-height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    display: flex;
+    position: fixed;
+    background: map-get($colors, 1);
+    flex-direction: column;
+    transition: all 0.3s ease;
+
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+        width: 250px;
+        left: -500px;
+        &.active {
+            left: 0px;
+        }
+    }
+
+
+    //
+    // Variants
+    //
+
+    // Dark
+    &.dark {
+        background: map-get($dark-colors, 1);
+        .logo-box {
+            border-color: map-get($dark-colors, 1);
+        }
+        .side-nav {
+            > .title {
+                color: map-get($dark-colors, 3);
+            }
+            > .main-menu > ul {
+                > li {
+                    &.active {
+                        background: map-get($dark-colors, 2);
+                    }
+
+                    @media (max-width: map-get($grid-breakpoints, lg)) {
+                        &.active,
+                        &.first-position {
+                            > .sub-menu {
+                                background: map-get($dark-colors, 2);
+                                ul {
+                                    > li {
+                                        > a {
+                                            color: map-get($dark-colors, 3);
+                                        }
+                                        > ul {
+                                            &:after {
+                                                color: map-get($dark-colors, 4);
+                                            }
+                                        }
+
+                                        &.active {
+                                            background: map-get($dark-colors, 5);
+                                            > ul {
+                                                > li {
+                                                    > a {
+                                                        color: map-get($dark-colors, 3);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        > .sub-menu {
+                            &:after {
+                                color: map-get($dark-colors, 3);
+                            }
+                        }
+                        > .menu-item {
+                            > .title {
+                                color: map-get($dark-colors, 3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .logo-box {
+                border-color: map-get($dark-colors, 2);
+            }
+            .side-nav {
+                > .main-menu > ul > li {
+                    &.active,
+                    &.first-position {
+                        > .sub-menu {
+                            background: map-get($dark-colors, 2);
+                            ul {
+                                > li {
+                                    > a {
+                                        color: map-get($dark-colors, 3);
+                                    }
+                                    > ul:after {
+                                        color: map-get($dark-colors, 4);
+                                    }
+                                    &.active {
+                                        background: map-get($dark-colors, 5);
+                                        > ul {
+                                            > li {
+                                                > a {
+                                                    color: map-get($dark-colors, 3);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    > .sub-menu {
+                        &:after {
+                            color: map-get($dark-colors, 3);
+                        }
+                    }
+                    > .menu-item {
+                        > .title {
+                            color: map-get($dark-colors, 3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Light
+    &.light {
+        background: map-get($light-colors, 1);
+        border-right: 1px solid map-get($light-colors, 6);
+        .logo-box {
+            border-color: $white;
+        }
+        .side-nav {
+            > .title {
+                color: map-get($light-colors, 7);
+            }
+            > .main-menu > ul {
+                > li {
+                    > .menu-item {
+                        color: map-get($light-colors, 7);
+                    }
+                    &.active {
+                        background: map-get($light-colors, 2);
+                    }
+
+                    @media (max-width: map-get($grid-breakpoints, lg)) {
+                        &.active,
+                        &.first-position {
+                            > .sub-menu {
+                                background: map-get($light-colors, 2);
+                                ul {
+                                    > li {
+                                        > a {
+                                            color: map-get($light-colors, 7);
+                                        }
+                                        > ul:after {
+                                            color: map-get($light-colors, 7);
+                                        }
+                                        &.active {
+                                            background: map-get($light-colors, 5);
+                                            > a {
+                                                color: map-get($light-colors, 7);
+                                            }
+                                            > ul {
+                                                &:after {
+                                                    color: map-get($light-colors, 7);
+                                                }
+                                                > li {
+                                                    > a {
+                                                        color: map-get($light-colors, 7);
+                                                        > .icon {
+                                                            color: map-get($light-colors, 7);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        > .sub-menu {
+                            &:after {
+                                color: map-get($light-colors, 7);
+                            }
+                        }
+                        > .menu-item {
+                            > .title {
+                                color: map-get($light-colors, 7);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .logo-box {
+                border-color: map-get($light-colors, 2);
+            }
+            .side-nav {
+                > .main-menu > ul > li {
+                    &.active,
+                    &.first-position {
+                        > .sub-menu {
+                            background: map-get($light-colors, 2);
+                            ul {
+                                > li {
+                                    > a {
+                                        color: map-get($light-colors, 7);
+                                    }
+                                    &:hover {
+                                        > a {
+                                            color: map-get($light-colors, 7);
+                                        }
+                                    }
+                                    > ul:after {
+                                        color: map-get($light-colors, 7);
+                                    }
+                                    &.active {
+                                        background: map-get($light-colors, 5);
+                                        > a {
+                                            color: map-get($light-colors, 7);
+                                        }
+                                        > ul {
+                                            &:after {
+                                                color: map-get($light-colors, 7);
+                                            }
+                                            > li {
+                                                > a {
+                                                    color: map-get($light-colors, 7);
+                                                    > .icon {
+                                                        color: map-get($light-colors, 7);
+                                                    
+                                                    }
+                                                }
+                                                &:hover {
+                                                    > a {
+                                                        color: map-get($light-colors, 7);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    > .sub-menu {
+                        &:after {
+                            color: map-get($light-colors, 7);
+                        }
+                    }
+                    > .menu-item {
+                        > .title {
+                            color: map-get($light-colors, 7);
+                        }
+                        &:hover {
+                            > .title {
+                                color: map-get($light-colors, 7);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    //
+    // Logo box
+    //
+
+    .logo-box {
+        width: 100%;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+        border-bottom: 1px solid map-get($colors, 2);
+
+        @media (max-width: map-get($grid-breakpoints, lg)) {
+            padding: 0px 20px;
+            justify-content: flex-start;
+        }
+
+        > .logo {
+            height: 30px;
+        }
+        > .title {
+            display: none;
+
+            @media (max-width: map-get($grid-breakpoints, lg)) {
+                display: block;
+                margin-left: 12px;
+                font-weight: normal;
+                font-size: map-get($text-sizes, 16);
+            }
+        }
+    }
+
+
+
+    //
+    // Side nav
+    //
+
+    .side-nav {
+        flex: 1;
+        width: 100%;
+        overflow: hidden;
+        &.sub-menu-active > .title {
+            max-width: 45px;
+        }
+
+        @media (max-width: map-get($grid-breakpoints, lg)) {
+            position: relative;
+        }
+
+        > .title {
+            max-width: 80%;
+            margin: 0px auto;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: map-get($colors, 3);
+
+            @media (max-width: map-get($grid-breakpoints, lg)) {
+                margin: 0px;
+                max-width: 100%;
+                text-align: left;
+                padding-left: 20px;
+            }
+        }
+        > .main-menu > ul {
+            padding-left: 0px;
+            margin-bottom: 0px;
+            > li {
+                padding: 8px 0px;
+                text-align: center;
+                &.active {
+                    background: map-get($colors, 2);
+                }
+                > .menu-item {
+                    color: $white;
+                    display: block;
+                    text-decoration: none;
+                    > .icon {
+                        font-size: map-get($text-sizes, 16);
+                    }
+                    > .title {
+                        display: none;
+                    }
+                }
+                > .sub-menu {
+                    left: -500px;
+                    display: none;
+                    ul > li {
+                        display: none;
+                        > ul > li {
+                            display: none;
+                        }
+                    }
+                }
+
+                @media (max-width: map-get($grid-breakpoints, lg)) {
+                    text-align: left;
+                    position: relative;
+                    padding-left: 20px;
+                    &.active > .sub-menu {
+                        left: 53px;
+                    }
+                    &.active,
+                    &.first-position {
+                        position: initial;
+
+
+
+                        //
+                        // Side nav states (Level 2)
+                        //
+
+                        > .sub-menu {
+                            top: 0px;
+                            z-index: 2;
+                            height: 100%;
+                            position: absolute;
+                            background: map-get($colors, 2);
+                            &:after {
+                                display: none;
+                            }
+                            ul {
+                                padding-left: 0px;
+                                > li {
+                                    display: block;
+                                    list-style: none;
+                                    position: relative;
+                                    transition: all 0.3s ease;
+                                    > a {
+                                        width: 196px;
+                                        display: block;
+                                        font-weight: normal;
+                                        padding: 12px 8px 12px 20px;
+                                        color: map-get($colors, 3);
+                                        text-decoration: none;
+                                        transition: all 0.3s ease;
+                                        > .icon {
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                    &:hover {
+                                        > a {
+                                            color: $white;
+                                        }
+                                    }
+                                    > ul {
+                                        &:after {
+                                            content: "\F142";
+                                            top: 12px;
+                                            right: 12px;
+                                            position: absolute;
+                                            color: map-get($colors, 4);
+                                            transition: all 0.3s ease;
+                                            font: normal normal normal 18px/1 "Material Design Icons";
+                                        }
+                                        > li {
+                                            display: none;
+                                        }
+                                    }
+
+
+
+                                    //
+                                    // Side nav states (Level 3)
+                                    //
+
+                                    &.active {
+                                        background: map-get($colors, 5);
+                                        > a {
+                                            color: $white;
+                                        }
+                                        > ul {
+                                            padding-bottom: 8px;
+                                            &:after {
+                                                color: $white;
+                                                transform: rotate(90deg);
+                                            }
+                                            > li {
+                                                display: block;
+                                                list-style: none;
+                                                > a {
+                                                    display: block;
+                                                    font-weight: normal;
+                                                    padding: 12px 8px 12px 28px;
+                                                    color: map-get($colors, 3);
+                                                    text-decoration: none;
+                                                    transition: all 0.3s ease;
+                                                    > .icon {
+                                                        color: $white;
+                                                        margin-right: 5px;
+                                                    }
+                                                }
+                                                &:hover {
+                                                    > a {
+                                                        color: $white;
+                                                    }
+                                                }
+                                                &.active > a {
+                                                    color: $white;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    > .sub-menu {
+                        display: block;
+                        &:after {
+                            content: "\F142";
+                            top: 11px;
+                            right: 20px;
+                            position: absolute;
+                            color: map-get($colors, 3);
+                            font: normal normal normal 18px/1 "Material Design Icons";
+                        }
+                    }
+                    > .menu-item {
+                        position: relative;
+                        > .title {
+                            top: 0px;
+                            left: 33px;
+                            display: block;
+                            max-width: 80%;
+                            overflow: hidden;
+                            position: absolute;
+                            font-weight: normal;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            margin: 3px auto 0px auto;
+                            color: map-get($colors, 3);
+                        }
+                        &:hover {
+                            > .title {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    //
+    // States
+    //
+
+    &:hover {
+        width: 250px;
+
+
+
+        //
+        // Logo box states
+        //
+
+        .logo-box {
+            padding: 0px 20px;
+            transition: all 0.3s ease;
+            justify-content: flex-start;
+            border-bottom: 1px solid map-get($colors, 2);
+            > .title {
+                display: block;
+                margin-left: 12px;
+                font-weight: normal;
+                font-size: map-get($text-sizes, 16);
+            }
+        }
+
+
+
+        //
+        // Side nav states
+        //
+
+        .side-nav {
+            position: relative;
+            &.sub-menu-active > .title {
+                max-width: 45px;
+            }
+            > .title {
+                margin: 0px;
+                max-width: 100%;
+                text-align: left;
+                padding-left: 20px;
+                transition: all 0.3s ease;
+            }
+            > .main-menu > ul > li {
+                text-align: left;
+                position: relative;
+                padding-left: 20px;
+                &.active > .sub-menu {
+                    left: 53px;
+                }
+                &.active,
+                &.first-position {
+                    position: initial;
+
+
+
+                    //
+                    // Side nav states (Level 2)
+                    //
+
+                    > .sub-menu {
+                        top: 0px;
+                        z-index: 2;
+                        height: 100vh;
+                        position: absolute;
+                        background: map-get($colors, 2);
+                        &:after {
+                            display: none;
+                        }
+                        ul {
+                            padding-left: 0px;
+                            > li {
+                                display: block;
+                                list-style: none;
+                                position: relative;
+                                transition: all 0.3s ease;
+                                > a {
+                                    width: 196px;
+                                    display: block;
+                                    font-weight: normal;
+                                    padding: 12px 8px 12px 20px;
+                                    color: map-get($colors, 3);
+                                    text-decoration: none;
+                                    transition: all 0.3s ease;
+                                    > .icon {
+                                        margin-right: 5px;
+                                    }
+                                }
+                                &:hover {
+                                    > a {
+                                        color: $white;
+                                    }
+                                }
+                                > ul > li {
+                                    display: none;
+                                }
+                                > ul:after {
+                                    content: "\F142";
+                                    top: 12px;
+                                    right: 12px;
+                                    position: absolute;
+                                    color: map-get($colors, 4);
+                                    transition: all 0.3s ease;
+                                    font: normal normal normal 18px/1 "Material Design Icons";
+                                }
+
+
+
+                                //
+                                // Side nav states (Level 3)
+                                //
+
+                                &.active {
+                                    background: map-get($colors, 5);
+                                    > a {
+                                        color: $white;
+                                    }
+                                    > ul {
+                                        padding-bottom: 8px;
+                                        &:after {
+                                            color: $white;
+                                            transform: rotate(90deg);
+                                        }
+                                        > li {
+                                            display: block;
+                                            list-style: none;
+                                            > a {
+                                                display: block;
+                                                font-weight: normal;
+                                                padding: 12px 8px 12px 28px;
+                                                color: map-get($colors, 3);
+                                                text-decoration: none;
+                                                transition: all 0.3s ease;
+                                                > .icon {
+                                                    color: $white;
+                                                    margin-right: 5px;
+                                                }
+                                            }
+                                            &:hover {
+                                                > a {
+                                                    color: $white;
+                                                }
+                                            }
+                                            &.active > a {
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                > .sub-menu {
+                    display: block;
+                    &:after {
+                        content: "\F142";
+                        top: 11px;
+                        right: 20px;
+                        position: absolute;
+                        color: map-get($colors, 3);
+                        font: normal normal normal 18px/1 "Material Design Icons";
+                    }
+                }
+                > .menu-item {
+                    position: relative;
+                    > .title {
+                        top: 0px;
+                        left: 33px;
+                        display: block;
+                        max-width: 80%;
+                        overflow: hidden;
+                        position: absolute;
+                        font-weight: normal;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        margin: 3px auto 0px auto;
+                        color: map-get($colors, 3);
+                    }
+                    &:hover {
+                        > .title {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

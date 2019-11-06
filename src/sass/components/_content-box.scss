@@ -1,0 +1,23 @@
+
+//
+// Colors
+//
+
+$colors: (
+    1: #e6e6e6
+);
+
+
+
+//
+// Content box
+//
+
+.content-box {
+	background: $white;
+	border: 1px solid map-get($colors, 1);
+	.box-title {
+		font-weight: $font-weight-normal;
+		font-size: map-get($text-sizes, 15);
+	}
+}
